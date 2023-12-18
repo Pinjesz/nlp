@@ -1,0 +1,6 @@
+tokenizers
+transformers
+wandb
+numpy
+lightning
+ipykernel
