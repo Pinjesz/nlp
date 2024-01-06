@@ -48,13 +48,9 @@ def get_tokenized_data(tokenizer_checkpoint: str):
             if len(encoded["input_ids"]) > tokenizer.model_max_length:
                 continue
 
+            word_ids = encoded.word_ids()
             encoded_list = encoded["input_ids"]
-            tagged = (np.array(encoded["attention_mask"]) - 1) * (100 + category_to_index["O"])
-            for j, en in enumerate(encoded_list):
-                if en == tokenizer.pad_token_id:
-                    break
-                if en in [tokenizer.cls_token_id, tokenizer.sep_token_id]:
-                    tagged[j] = -(100 + category_to_index["O"])
+            tagged = ((np.array(word_ids) != None).astype(int) - 1)*(100+category_to_index["O"])
             tagged += category_to_index["O"]
 
             emotion_idx = emotion_to_index[utterances[i]["emotion"]]
@@ -78,8 +74,11 @@ def get_tokenized_data(tokenizer_checkpoint: str):
                     cause_spans.append([start, end])
 
             for start, end in cause_spans:
-                tagged[start] = category_to_index["B-cause"]
                 tagged[start + 1 : end] = category_to_index["I-cause"]
+                id = word_ids[start]
+                while word_ids[start] == id:
+                    tagged[start] = category_to_index["B-cause"]
+                    start += 1
 
             tokenized.append(
                 {
