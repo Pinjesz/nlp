@@ -1,7 +1,17 @@
-from transformers import AutoTokenizer
+import torch
+from transformers import BertTokenizerFast
 import json
 import pickle
-from utils.evaluate import get_span_position
+
+
+emotions = ['neutral','anger', 'disgust', 'fear', 'joy', 'sadness', 'surprise']
+emotion_to_index = dict(zip(emotions, range(len(emotions))))
+index_to_emotion = dict(zip(range(len(emotions)), emotions))
+
+categories = ["B-cause", "I-cause"]
+category_to_index = dict(zip(categories, range(len(categories))))
+index_to_category = dict(zip(range(len(categories)), categories))
+
 
 def find_index(sequence, subsequence) -> tuple[int, int]:
     l = len(subsequence)
@@ -16,7 +26,70 @@ def get_tokenized_data(tokenizer_checkpoint: str):
     with open(data_path, "r") as file:
         data = json.load(file)
 
-    tokenizer = AutoTokenizer.from_pretrained(tokenizer_checkpoint)
+    tokenizer = BertTokenizerFast.from_pretrained(tokenizer_checkpoint)
+    tokenized = []
+    labels = []
+
+    for conversation in data:
+        utterances = conversation["conversation"]
+        utt_num = len(utterances)
+        for i in range(utt_num):
+            previous = " [SEP] ".join([ut["text"] for ut in utterances[:i]])
+            current = utterances[i]["text"]
+            encoded = tokenizer(
+                previous,
+                current,
+                padding="max_length",
+                add_special_tokens=True,
+            )
+            if len(encoded) > tokenizer.model_max_length:
+                continue
+
+            encoded_list = encoded["input_ids"]
+            tagged = [-100 for i in range(len(encoded_list))]
+
+            emotion_idx = emotion_to_index[utterances[i]["emotion"]]
+
+            cause_spans = []
+            for pair in conversation["emotion-cause_pairs"]:
+                target_index = int(pair[0][0:pair[0].find('_')])
+                if i + 1 == target_index:
+                    underscore_index = pair[1].find('_')
+                    source_index = int(pair[1][0:underscore_index])
+                    if target_index < source_index:
+                        continue
+                    span = pair[1][underscore_index + 1:]
+                    tokenized_span = tokenizer(span, add_special_tokens=False)["input_ids"]
+                    start, end = find_index(encoded_list, tokenized_span)
+                    if start == -1:
+                        print("Check your code or dataset!")
+                        continue
+                    cause_spans.append([start, end])
+
+            for start, end in cause_spans:
+                tagged[start] = category_to_index["B-cause"]
+                tagged[start+1:end] = [category_to_index["I-cause"]]*(end-start-1)
+
+            tokenized.append({
+                "input_ids" : torch.tensor([encoded["input_ids"]]),
+                "token_type_ids" : torch.tensor([encoded["token_type_ids"]]),
+                "attention_mask" : torch.tensor([encoded["attention_mask"]]),
+            })
+            labels.append({
+                "emotion": emotion_idx,
+                "tagged": torch.tensor([tagged]),
+            })
+
+    return tokenized, labels
+
+
+
+def get_tokenized_data_old(tokenizer_checkpoint: str):
+    data_path = "data/raw/Subtask_1_train.json"
+    with open(data_path, "r") as file:
+        data = json.load(file)
+
+    tokenizer = BertTokenizerFast.from_pretrained(tokenizer_checkpoint)
 
     conversations = []
     for conversation in data:
@@ -40,7 +113,7 @@ def get_tokenized_data(tokenizer_checkpoint: str):
             span = pair[1][underscore_index_1 + 1:]
             tokenized_span = tokenizer(span)["input_ids"][1:-1]
             tokenized_utterance = tokenizer(data[i]["conversation"][source_index - 1]["text"])["input_ids"]
-            start, end = get_span_position(tokenized_utterance, tokenized_span)
+            start, end = find_index(tokenized_utterance, tokenized_span)
 
             if start == -1:
                 print("Check your code or dataset!")
@@ -71,5 +144,6 @@ if __name__ == "__main__":
     tokenized_data_path = "data/tokenized/train.pkl"
 
     tokens, labels = get_tokenized_data(tokenizer)
+    print("Length of data:", len(tokens), len(labels))
     with open(tokenized_data_path, 'wb') as file:
         pickle.dump({"tokens": tokens, "labels": labels}, file)
