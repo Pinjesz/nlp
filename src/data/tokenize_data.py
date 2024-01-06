@@ -1,14 +1,15 @@
+import numpy as np
 import torch
 from transformers import BertTokenizerFast
 import json
 import pickle
 
 
-emotions = ['neutral','anger', 'disgust', 'fear', 'joy', 'sadness', 'surprise']
+emotions = ["neutral", "anger", "disgust", "fear", "joy", "sadness", "surprise"]
 emotion_to_index = dict(zip(emotions, range(len(emotions))))
 index_to_emotion = dict(zip(range(len(emotions)), emotions))
 
-categories = ["B-cause", "I-cause"]
+categories = ["B-cause", "I-cause", "O"]
 category_to_index = dict(zip(categories, range(len(categories))))
 index_to_category = dict(zip(range(len(categories)), categories))
 
@@ -26,7 +27,9 @@ def get_tokenized_data(tokenizer_checkpoint: str):
     with open(data_path, "r") as file:
         data = json.load(file)
 
-    tokenizer = BertTokenizerFast.from_pretrained(tokenizer_checkpoint)
+    tokenizer: BertTokenizerFast = BertTokenizerFast.from_pretrained(
+        tokenizer_checkpoint
+    )
     tokenized = []
     labels = []
 
@@ -42,24 +45,32 @@ def get_tokenized_data(tokenizer_checkpoint: str):
                 padding="max_length",
                 add_special_tokens=True,
             )
-            if len(encoded) > tokenizer.model_max_length:
+            if len(encoded["input_ids"]) > tokenizer.model_max_length:
                 continue
 
             encoded_list = encoded["input_ids"]
-            tagged = [-100 for i in range(len(encoded_list))]
+            tagged = (np.array(encoded["attention_mask"]) - 1) * (100 + category_to_index["O"])
+            for j, en in enumerate(encoded_list):
+                if en == tokenizer.pad_token_id:
+                    break
+                if en in [tokenizer.cls_token_id, tokenizer.sep_token_id]:
+                    tagged[j] = -(100 + category_to_index["O"])
+            tagged += category_to_index["O"]
 
             emotion_idx = emotion_to_index[utterances[i]["emotion"]]
 
             cause_spans = []
             for pair in conversation["emotion-cause_pairs"]:
-                target_index = int(pair[0][0:pair[0].find('_')])
+                target_index = int(pair[0][0 : pair[0].find("_")])
                 if i + 1 == target_index:
-                    underscore_index = pair[1].find('_')
+                    underscore_index = pair[1].find("_")
                     source_index = int(pair[1][0:underscore_index])
                     if target_index < source_index:
                         continue
-                    span = pair[1][underscore_index + 1:]
-                    tokenized_span = tokenizer(span, add_special_tokens=False)["input_ids"]
+                    span = pair[1][underscore_index + 1 :]
+                    tokenized_span = tokenizer(span, add_special_tokens=False)[
+                        "input_ids"
+                    ]
                     start, end = find_index(encoded_list, tokenized_span)
                     if start == -1:
                         print("Check your code or dataset!")
@@ -68,20 +79,25 @@ def get_tokenized_data(tokenizer_checkpoint: str):
 
             for start, end in cause_spans:
                 tagged[start] = category_to_index["B-cause"]
-                tagged[start+1:end] = [category_to_index["I-cause"]]*(end-start-1)
+                tagged[start + 1 : end] = category_to_index["I-cause"]
 
-            tokenized.append({
-                "input_ids" : torch.tensor([encoded["input_ids"]]),
-                "token_type_ids" : torch.tensor([encoded["token_type_ids"]]),
-                "attention_mask" : torch.tensor([encoded["attention_mask"]]),
-            })
-            labels.append({
-                "emotion": emotion_idx,
-                "tagged": torch.tensor([tagged]),
-            })
+            tokenized.append(
+                {
+                    "input_ids": torch.tensor([encoded["input_ids"]]),
+                    "token_type_ids": torch.tensor([encoded["token_type_ids"]]),
+                    "attention_mask": torch.tensor([encoded["attention_mask"]]),
+                }
+            )
+            labels.append(
+                {
+                    "emotion": emotion_idx,
+                    "tagged": torch.tensor(
+                        tagged.reshape([1, tokenizer.model_max_length])
+                    ),
+                }
+            )
 
     return tokenized, labels
-
 
 
 def get_tokenized_data_old(tokenizer_checkpoint: str):
@@ -104,15 +120,17 @@ def get_tokenized_data_old(tokenizer_checkpoint: str):
     for i, conversation in enumerate(data):
         label = []
         for pair in conversation["emotion-cause_pairs"]:
-            underscore_index_0 = pair[0].find('_')
+            underscore_index_0 = pair[0].find("_")
             target_index = int(pair[0][0:underscore_index_0])
-            emotion = pair[0][underscore_index_0 + 1:]
+            emotion = pair[0][underscore_index_0 + 1 :]
 
-            underscore_index_1 = pair[1].find('_')
+            underscore_index_1 = pair[1].find("_")
             source_index = int(pair[1][0:underscore_index_1])
-            span = pair[1][underscore_index_1 + 1:]
+            span = pair[1][underscore_index_1 + 1 :]
             tokenized_span = tokenizer(span)["input_ids"][1:-1]
-            tokenized_utterance = tokenizer(data[i]["conversation"][source_index - 1]["text"])["input_ids"]
+            tokenized_utterance = tokenizer(
+                data[i]["conversation"][source_index - 1]["text"]
+            )["input_ids"]
             start, end = find_index(tokenized_utterance, tokenized_span)
 
             if start == -1:
@@ -145,5 +163,5 @@ if __name__ == "__main__":
 
     tokens, labels = get_tokenized_data(tokenizer)
     print("Length of data:", len(tokens), len(labels))
-    with open(tokenized_data_path, 'wb') as file:
+    with open(tokenized_data_path, "wb") as file:
         pickle.dump({"tokens": tokens, "labels": labels}, file)
