@@ -22,7 +22,7 @@ def find_index(sequence, subsequence) -> tuple[int, int]:
     return -1, -1
 
 
-def get_tokenized_data(tokenizer_checkpoint: str, data = "data/raw/Subtask_1_train.json"):
+def get_tokenized_data(tokenizer_checkpoint: str, data="data/raw/Subtask_1_train.json"):
     if type(data) is str:
         with open(data, "r") as file:
             data = json.load(file)
@@ -62,7 +62,9 @@ def get_tokenized_data(tokenizer_checkpoint: str, data = "data/raw/Subtask_1_tra
                         word_index += 1
                     word_ids.append(word_index)
 
-            tagged = ((np.array(word_ids) != None).astype(int) - 1)*(100+category_to_index["O"])
+            tagged = ((np.array(word_ids) != None).astype(int) - 1) * (
+                100 + category_to_index["O"]
+            )
             tagged += category_to_index["O"]
 
             emotion_idx = emotion_to_index[utterances[i]["emotion"]]
@@ -98,8 +100,8 @@ def get_tokenized_data(tokenizer_checkpoint: str, data = "data/raw/Subtask_1_tra
                     "token_type_ids": torch.tensor([encoded["token_type_ids"]]),
                     "attention_mask": torch.tensor([encoded["attention_mask"]]),
                     "conversation_ID": conversation["conversation_ID"],
-                    "utterance_ID": i+1,
-                    "word_ids": word_ids
+                    "utterance_ID": i + 1,
+                    "word_ids": word_ids,
                 }
             )
             labels.append(
