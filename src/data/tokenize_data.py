@@ -48,8 +48,20 @@ def get_tokenized_data(tokenizer_checkpoint: str):
             if len(encoded["input_ids"]) > tokenizer.model_max_length:
                 continue
 
-            word_ids = encoded.word_ids()
+            word_ids_temp = encoded.word_ids()
             encoded_list = encoded["input_ids"]
+
+            word_index = -1
+            word_ids = []
+            for j, en in enumerate(encoded_list):
+                if en == tokenizer.sep_token_id or word_ids_temp[j] is None:
+                    word_index = -1
+                    word_ids.append(None)
+                else:
+                    if word_ids_temp[j] != word_ids_temp[j - 1]:
+                        word_index += 1
+                    word_ids.append(word_index)
+
             tagged = ((np.array(word_ids) != None).astype(int) - 1)*(100+category_to_index["O"])
             tagged += category_to_index["O"]
 
@@ -85,6 +97,9 @@ def get_tokenized_data(tokenizer_checkpoint: str):
                     "input_ids": torch.tensor([encoded["input_ids"]]),
                     "token_type_ids": torch.tensor([encoded["token_type_ids"]]),
                     "attention_mask": torch.tensor([encoded["attention_mask"]]),
+                    "conversation_ID": conversation["conversation_ID"],
+                    "utterance_ID": i+1,
+                    "word_ids": word_ids
                 }
             )
             labels.append(
