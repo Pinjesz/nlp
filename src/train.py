@@ -30,18 +30,26 @@ import torch
 
 
 def main():
+    model = BertMultitaskPL()
     BATCH_SIZE = 4
     train_ds = TrainDataset()  # Replace this with your actual TrainDataset creation
     train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True)
-
-    model = BertMultitaskPL()
+    batch = next(iter(train_loader))
+    tokens, labels = batch
+    logits_emotions, logits_causes = model(
+        input_ids=tokens["input_ids"],
+        attention_mask=tokens["attention_mask"],
+        token_type_ids=tokens["token_type_ids"],
+    )
+    emotions_pred = torch.argmax(logits_emotions, dim=-1)
+    causes_pred = torch.argmax(logits_causes, dim=-1)
 
     # Initialize a PyTorch Lightning Trainer
-    trainer = pl.Trainer(
-        max_epochs=5,
-        # devices=torch.cuda.device_count() if torch.cuda.is_available() else None,
-    )
-    trainer.fit(model, train_loader)
+    # trainer = pl.Trainer(
+    #     max_epochs=5,
+    #     # devices=torch.cuda.device_count() if torch.cuda.is_available() else None,
+    # )
+    # trainer.fit(model, train_loader)
 
 
 if __name__ == "__main__":
