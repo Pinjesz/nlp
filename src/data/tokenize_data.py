@@ -22,10 +22,10 @@ def find_index(sequence, subsequence) -> tuple[int, int]:
     return -1, -1
 
 
-def get_tokenized_data(tokenizer_checkpoint: str):
-    data_path = "data/raw/Subtask_1_train.json"
-    with open(data_path, "r") as file:
-        data = json.load(file)
+def get_tokenized_data(tokenizer_checkpoint: str, data = "data/raw/Subtask_1_train.json"):
+    if type(data) is str:
+        with open(data, "r") as file:
+            data = json.load(file)
 
     tokenizer: BertTokenizerFast = BertTokenizerFast.from_pretrained(
         tokenizer_checkpoint
