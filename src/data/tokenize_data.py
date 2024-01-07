@@ -22,10 +22,10 @@ def find_index(sequence, subsequence) -> tuple[int, int]:
     return -1, -1
 
 
-def get_tokenized_data(tokenizer_checkpoint: str):
-    data_path = "data/raw/Subtask_1_train.json"
-    with open(data_path, "r") as file:
-        data = json.load(file)
+def get_tokenized_data(tokenizer_checkpoint: str, data="data/raw/Subtask_1_train.json"):
+    if type(data) is str:
+        with open(data, "r") as file:
+            data = json.load(file)
 
     tokenizer: BertTokenizerFast = BertTokenizerFast.from_pretrained(
         tokenizer_checkpoint
@@ -48,15 +48,23 @@ def get_tokenized_data(tokenizer_checkpoint: str):
             if len(encoded["input_ids"]) > tokenizer.model_max_length:
                 continue
 
+            word_ids_temp = encoded.word_ids()
             encoded_list = encoded["input_ids"]
-            tagged = (np.array(encoded["attention_mask"]) - 1) * (
+
+            word_index = -1
+            word_ids = []
+            for j, en in enumerate(encoded_list):
+                if en == tokenizer.sep_token_id or word_ids_temp[j] is None:
+                    word_index = -1
+                    word_ids.append(None)
+                else:
+                    if word_ids_temp[j] != word_ids_temp[j - 1]:
+                        word_index += 1
+                    word_ids.append(word_index)
+
+            tagged = ((np.array(word_ids) != None).astype(int) - 1) * (
                 100 + category_to_index["O"]
             )
-            for j, en in enumerate(encoded_list):
-                if en == tokenizer.pad_token_id:
-                    break
-                if en in [tokenizer.cls_token_id, tokenizer.sep_token_id]:
-                    tagged[j] = -(100 + category_to_index["O"])
             tagged += category_to_index["O"]
 
             emotion_idx = emotion_to_index[utterances[i]["emotion"]]
@@ -80,14 +88,20 @@ def get_tokenized_data(tokenizer_checkpoint: str):
                     cause_spans.append([start, end])
 
             for start, end in cause_spans:
-                tagged[start] = category_to_index["B-cause"]
                 tagged[start + 1 : end] = category_to_index["I-cause"]
+                id = word_ids[start]
+                while word_ids[start] == id:
+                    tagged[start] = category_to_index["B-cause"]
+                    start += 1
 
             tokenized.append(
                 {
                     "input_ids": torch.tensor([encoded["input_ids"]]),
                     "token_type_ids": torch.tensor([encoded["token_type_ids"]]),
                     "attention_mask": torch.tensor([encoded["attention_mask"]]),
+                    "conversation_ID": conversation["conversation_ID"],
+                    "utterance_ID": i + 1,
+                    "word_ids": word_ids,
                 }
             )
             labels.append(

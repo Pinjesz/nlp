@@ -257,109 +257,31 @@ def evaluate_1_2(pred_data, gold_data):
     return score_list, score_list_2
 
 
-def cal_prf_pair_emocate(true_pairs, pred_pairs):
-    conf_mat = np.zeros([7,7])
-    for p in pred_pairs:
-        if p in true_pairs:
-            conf_mat[p[3]][p[3]] += 1
-        else:
-            conf_mat[0][p[3]] += 1
-    for p in true_pairs:
-        if p not in pred_pairs:
-            conf_mat[p[3]][0] += 1
-    p = np.diagonal(conf_mat / np.reshape(np.sum(conf_mat, axis = 0)+(1e-8), [1,7]))
-    r = np.diagonal(conf_mat / np.reshape(np.sum(conf_mat, axis = 1)+(1e-8), [7,1]))
-    f = 2*p*r/(p+r+(1e-8))
-    weight0 = np.sum(conf_mat, axis = 1)
-    weight = weight0[1:] / np.sum(weight0[1:])
-    w_avg_p = np.sum(p[1:] * weight)
-    w_avg_r = np.sum(r[1:] * weight)
-    w_avg_f1 = np.sum(f[1:] * weight)
-
-    micro_acc = np.sum(np.diagonal(conf_mat)[1:])
-    micro_p = micro_acc / (sum(np.sum(conf_mat, axis = 0)[1:])+(1e-8))
-    micro_r = micro_acc / (sum(np.sum(conf_mat, axis = 1)[1:])+(1e-8))
-    micro_f1 = 2*micro_p*micro_r/(micro_p+micro_r+1e-8)
-
-    results = [micro_p, micro_r, micro_f1, w_avg_p, w_avg_r, w_avg_f1]
-    return results
-
-def evaluate_2_2(pred_data, gold_data):
-    gold_data_dict = convert_list_to_dict(gold_data, main_key="conversation_ID")
-    pred_data_dict = convert_list_to_dict(pred_data, main_key="conversation_ID")
-
-    pred_pairs, true_pairs = [], []
-    for id, ins in gold_data_dict.items():
-        if id not in pred_data_dict:
-            sys.exit('Conversation {} are missing!'.format(id))
-        else:
-            pred = pred_data_dict[id]
-
-            def get_new_pair(pair_scores):
-                emo_id, emotion = pair_scores[0].split('_')
-                if emotion not in emotion_idx:
-                    sys.exit('Unknown emotion category!')
-                else:
-                    if 'U' in emo_id:
-                        emo_id = emo_id.replace('U','')
-                    return [id, int(emo_id), int(pair_scores[1]), emotion_idx[emotion]]
-
-            for p in ins["emotion-cause_pairs"]:
-                new_pair = get_new_pair(p)
-                if new_pair not in true_pairs:
-                    true_pairs.append(new_pair)
-
-            if "emotion-cause_pairs" not in pred:
-                sys.exit("Cannot find the key 'emotion-cause_pairs'!")
-            else:
-                for p in pred["emotion-cause_pairs"]:
-                    new_pair = get_new_pair(p)
-                    if new_pair not in pred_pairs:
-                        pred_pairs.append(new_pair)
-
-    all_results_emocate = cal_prf_pair_emocate(true_pairs, pred_pairs)
-    return all_results_emocate
-
-
 def main():
     output_file = open(os.path.join(output_dir, 'scores.txt'), 'w')
-    subtask_name_list = ['Subtask_1', 'Subtask_2']
     participate_subtask_num = 0
-    for subtask_name in subtask_name_list:
-        if len(sys.argv) > 1:
-            gold_file = os.path.join(input_dir, 'ref', '{}_gold.json'.format(subtask_name))
-            pred_file = os.path.join(input_dir, 'res', '{}_pred.json'.format(subtask_name))
-        else:
-            gold_file = os.path.join(input_dir, '{}_gold.json'.format(subtask_name))
-            pred_file = os.path.join(input_dir, '{}_pred.json'.format(subtask_name))
-        if os.path.exists(pred_file):
-            participate_subtask_num += 1
-            pred_data = get_json_data(pred_file)
-            gold_data = get_json_data(gold_file)
-            if 'Subtask_1' in subtask_name:
-                score_list, score_list_1 = evaluate_1_2(pred_data, gold_data)
-                output_file.write("weighted_strict_precision:{}\n".format(score_list[0]))
-                output_file.write("weighted_strict_recall:{}\n".format(score_list[1]))
-                output_file.write("weighted_strict_f1:{}\n".format(score_list[2]))
-                output_file.write("weighted_Proportional_precision:{}\n".format(score_list_1[0]))
-                output_file.write("weighted_Proportional_recall:{}\n".format(score_list_1[1]))
-                output_file.write("weighted_Proportional_f1:{}\n".format(score_list_1[2]))
+    gold_file = os.path.join(input_dir, 'Subtask_1_gold.json')
+    pred_file = os.path.join(input_dir, 'Subtask_1_pred.json')
 
-                output_file.write("strict_precision:{}\n".format(score_list[3]))
-                output_file.write("strict_recall:{}\n".format(score_list[4]))
-                output_file.write("strict_f1:{}\n".format(score_list[5]))
-                output_file.write("Proportional_precision:{}\n".format(score_list_1[3]))
-                output_file.write("Proportional_recall:{}\n".format(score_list_1[4]))
-                output_file.write("Proportional_f1:{}\n".format(score_list_1[5]))
+    if os.path.exists(pred_file):
+        participate_subtask_num += 1
+        pred_data = get_json_data(pred_file)
+        gold_data = get_json_data(gold_file)
 
-            if 'Subtask_2' in subtask_name:
-                score_list = evaluate_2_2(pred_data, gold_data)
-                output_file.write("precision_pair:{}\n".format(score_list[0]))
-                output_file.write("recall_pair:{}\n".format(score_list[1]))
-                output_file.write("f1_pair:{}\n".format(score_list[2]))
-                output_file.write("weighted_precision:{}\n".format(score_list[3]))
-                output_file.write("weighted_recall:{}\n".format(score_list[4]))
-                output_file.write("weighted_f1:{}\n".format(score_list[5]))
+        score_list, score_list_1 = evaluate_1_2(pred_data, gold_data)
+        output_file.write("weighted_strict_precision:{}\n".format(score_list[0]))
+        output_file.write("weighted_strict_recall:{}\n".format(score_list[1]))
+        output_file.write("weighted_strict_f1:{}\n".format(score_list[2]))
+        output_file.write("weighted_Proportional_precision:{}\n".format(score_list_1[0]))
+        output_file.write("weighted_Proportional_recall:{}\n".format(score_list_1[1]))
+        output_file.write("weighted_Proportional_f1:{}\n".format(score_list_1[2]))
+
+        output_file.write("strict_precision:{}\n".format(score_list[3]))
+        output_file.write("strict_recall:{}\n".format(score_list[4]))
+        output_file.write("strict_f1:{}\n".format(score_list[5]))
+        output_file.write("Proportional_precision:{}\n".format(score_list_1[3]))
+        output_file.write("Proportional_recall:{}\n".format(score_list_1[4]))
+        output_file.write("Proportional_f1:{}\n".format(score_list_1[5]))
 
     if participate_subtask_num == 0:
         sys.exit('Could not find valid json file in your zip package!')
