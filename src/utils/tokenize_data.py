@@ -49,7 +49,9 @@ def get_tokenized_data(tokenizer_checkpoint: str):
                 continue
 
             encoded_list = encoded["input_ids"]
-            tagged = (np.array(encoded["attention_mask"]) - 1) * (100 + category_to_index["O"])
+            tagged = (np.array(encoded["attention_mask"]) - 1) * (
+                100 + category_to_index["O"]
+            )
             for j, en in enumerate(encoded_list):
                 if en == tokenizer.pad_token_id:
                     break
