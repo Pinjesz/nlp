@@ -56,13 +56,13 @@ def get_tokenized_data(tokenizer_checkpoint: str, data="data/raw/Subtask_1_train
             for j, en in enumerate(encoded_list):
                 if en == tokenizer.sep_token_id or word_ids_temp[j] is None:
                     word_index = -1
-                    word_ids.append(None)
+                    word_ids.append(-10)
                 else:
                     if word_ids_temp[j] != word_ids_temp[j - 1]:
                         word_index += 1
                     word_ids.append(word_index)
 
-            tagged = ((np.array(word_ids) != None).astype(int) - 1) * (
+            tagged = ((np.array(word_ids) != -10).astype(int) - 1) * (
                 100 + category_to_index["O"]
             )
             tagged += category_to_index["O"]
@@ -114,64 +114,6 @@ def get_tokenized_data(tokenizer_checkpoint: str, data="data/raw/Subtask_1_train
             )
 
     return tokenized, labels
-
-
-def get_tokenized_data_old(tokenizer_checkpoint: str):
-    data_path = "data/raw/Subtask_1_train.json"
-    with open(data_path, "r") as file:
-        data = json.load(file)
-
-    tokenizer = BertTokenizerFast.from_pretrained(tokenizer_checkpoint)
-
-    conversations = []
-    for conversation in data:
-        con = conversation["conversation"][0]["text"]
-        for i in range(1, len(conversation["conversation"])):
-            con += " [CLS] " + conversation["conversation"][i]["text"]
-        conversations.append(con)
-
-    tokens = tokenizer(conversations, padding="max_length")["input_ids"]
-
-    labels = []
-    for i, conversation in enumerate(data):
-        label = []
-        for pair in conversation["emotion-cause_pairs"]:
-            underscore_index_0 = pair[0].find("_")
-            target_index = int(pair[0][0:underscore_index_0])
-            emotion = pair[0][underscore_index_0 + 1 :]
-
-            underscore_index_1 = pair[1].find("_")
-            source_index = int(pair[1][0:underscore_index_1])
-            span = pair[1][underscore_index_1 + 1 :]
-            tokenized_span = tokenizer(span)["input_ids"][1:-1]
-            tokenized_utterance = tokenizer(
-                data[i]["conversation"][source_index - 1]["text"]
-            )["input_ids"]
-            start, end = find_index(tokenized_utterance, tokenized_span)
-
-            if start == -1:
-                print("Check your code or dataset!")
-
-            label.append(
-                {
-                    "target_index": target_index,
-                    "emotion": emotion,
-                    "source_index": source_index,
-                    "span_start": start,
-                    "span_end": end,
-                }
-            )
-        labels.append(label)
-
-    filtered_tokens = []
-    filtered_labels = []
-    for i, t in enumerate(tokens):
-        if len(t) <= tokenizer.model_max_length:
-            filtered_tokens.append(t)
-            filtered_labels.append(labels[i])
-
-    return filtered_tokens, filtered_labels
-
 
 if __name__ == "__main__":
     tokenizer = "bert-base-cased"

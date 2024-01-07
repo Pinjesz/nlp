@@ -25,7 +25,7 @@ def untokenize(predicted:list):
         idx_to_utterance = [-1]
         utt = -1
         for i in range(1, len(p["word_ids"])):
-            if p["word_ids"][i - 1] is None and p["word_ids"][i] is not None:
+            if p["word_ids"][i - 1] < 0 and p["word_ids"][i] > 0:
                 utt += 1
             idx_to_utterance.append(utt)
 
@@ -65,7 +65,7 @@ if __name__ == "__main__":
     word_ids = tokens.word_ids()
     for j, en in enumerate(tokens["input_ids"]):
         if en == tokenizer.sep_token_id:
-            word_ids[j] = None
+            word_ids[j] = -10
     pred = [{"conversation_ID": 1,
              "utterance_ID": 2,
              "word_ids" : word_ids,
