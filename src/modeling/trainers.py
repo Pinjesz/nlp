@@ -14,9 +14,12 @@ class BertMultitaskPL(pl.LightningModule):
         self.emotion_loss = CrossEntropyLoss()
         self.causes_loss = CrossEntropyLoss()
 
+    def forward(self, **tokens):
+        return self.bert_model(**tokens)
+
     def training_step(self, batch, batch_idx):
         tokens, labels = batch
-        logits_emotions, logits_causes = self.bert_model(**tokens)
+        logits_emotions, logits_causes = self.self(**tokens)
         emotion_loss = self.emotion_loss(logits_emotions, labels["emotion"])
         causes_loss = self.causes_loss(
             logits_causes.view(-1, 3), labels["tagged"].view(-1)
