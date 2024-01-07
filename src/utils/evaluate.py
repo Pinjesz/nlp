@@ -257,35 +257,39 @@ def evaluate_1_2(pred_data, gold_data):
     return score_list, score_list_2
 
 
-def main():
-    output_file = open(os.path.join(output_dir, 'scores.txt'), 'w')
+def eval(pred_data, gold_data):
+    score_list, score_list_1 = evaluate_1_2(pred_data, gold_data)
+
+    result = {
+        "weighted_strict_precision": score_list[0],
+        "weighted_strict_recall": score_list[1],
+        "weighted_strict_f1": score_list[2],
+        "weighted_Proportional_precision": score_list_1[0],
+        "weighted_Proportional_recall": score_list_1[1],
+        "weighted_Proportional_f1": score_list_1[2],
+        "strict_precision": score_list[3],
+        "strict_recall": score_list[4],
+        "strict_f1": score_list[5],
+        "Proportional_precision": score_list_1[3],
+        "Proportional_recall": score_list_1[4],
+        "Proportional_f1": score_list_1[5],
+    }
+
+    return result
+
+
+if __name__ == "__main__":
+    output_file = open(os.path.join(output_dir, "scores.json"), "w")
     participate_subtask_num = 0
-    gold_file = os.path.join(input_dir, 'Subtask_1_gold.json')
-    pred_file = os.path.join(input_dir, 'Subtask_1_pred.json')
+    gold_file = os.path.join(input_dir, "Subtask_1_gold.json")
+    pred_file = os.path.join(input_dir, "Subtask_1_pred.json")
 
     if os.path.exists(pred_file):
         participate_subtask_num += 1
         pred_data = get_json_data(pred_file)
         gold_data = get_json_data(gold_file)
-
-        score_list, score_list_1 = evaluate_1_2(pred_data, gold_data)
-        output_file.write("weighted_strict_precision:{}\n".format(score_list[0]))
-        output_file.write("weighted_strict_recall:{}\n".format(score_list[1]))
-        output_file.write("weighted_strict_f1:{}\n".format(score_list[2]))
-        output_file.write("weighted_Proportional_precision:{}\n".format(score_list_1[0]))
-        output_file.write("weighted_Proportional_recall:{}\n".format(score_list_1[1]))
-        output_file.write("weighted_Proportional_f1:{}\n".format(score_list_1[2]))
-
-        output_file.write("strict_precision:{}\n".format(score_list[3]))
-        output_file.write("strict_recall:{}\n".format(score_list[4]))
-        output_file.write("strict_f1:{}\n".format(score_list[5]))
-        output_file.write("Proportional_precision:{}\n".format(score_list_1[3]))
-        output_file.write("Proportional_recall:{}\n".format(score_list_1[4]))
-        output_file.write("Proportional_f1:{}\n".format(score_list_1[5]))
+        result = eval(pred_data, gold_data)
+        json.dump(result, output_file, indent=4)
 
     if participate_subtask_num == 0:
-        sys.exit('Could not find valid json file in your zip package!')
-
-
-if __name__ == "__main__":
-    main()
+        sys.exit("Could not find valid json file in your zip package!")

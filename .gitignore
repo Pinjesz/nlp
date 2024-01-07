@@ -161,4 +161,4 @@ cython_debug/
 
 
 data/tokenized/*
-scores.txt
+scores.*
