@@ -16,7 +16,7 @@ def untokenize(predicted:list):
         spans = []
         start = None
         for i, tag in enumerate(p["tagged"][0]):
-            if tag.item() == category_to_index["B-cause"] and start is None:
+            if tag.item() == category_to_index["B-cause"] and start is None and p["word_ids"][i] >= 0:
                 start = i
             if start is not None and tag.item() != category_to_index["B-cause"] and tag.item() != category_to_index["I-cause"]:
                 spans.append([start, i])
@@ -25,7 +25,7 @@ def untokenize(predicted:list):
         idx_to_utterance = [-1]
         utt = -1
         for i in range(1, len(p["word_ids"])):
-            if p["word_ids"][i - 1] < 0 and p["word_ids"][i] > 0:
+            if p["word_ids"][i - 1] < 0 and p["word_ids"][i] >= 0:
                 utt += 1
             idx_to_utterance.append(utt)
 
