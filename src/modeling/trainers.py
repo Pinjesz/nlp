@@ -10,9 +10,8 @@ from sklearn.metrics import balanced_accuracy_score
 class BertMultitaskPL(pl.LightningModule):
     def __init__(self, cfg):
         super().__init__()
-        config = BertConfig.from_pretrained(cfg.model_name)
         self.learning_rate = cfg.lr
-        self.bert_model = BertMultitask(config)
+        self.bert_model = BertMultitask(cfg)
 
         if cfg.training_strategy == "heads":
             for param in self.bert_model.bert.parameters():
@@ -43,7 +42,8 @@ class BertMultitaskPL(pl.LightningModule):
                 "train_emotion_loss": emotion_loss,
                 "train_causes_loss": causes_loss,
                 "train_loss": loss,
-            }, on_epoch=True
+            },
+            on_epoch=True,
         )
         return loss
 
@@ -82,9 +82,9 @@ class BertMultitaskPL(pl.LightningModule):
 
         emotions_pred = torch.argmax(logits_emotions, dim=-1)
         causes_pred = torch.argmax(logits_causes, dim=-1)
-        emotions_true = labels[
-            "emotion"
-        ].cpu().detach().numpy()  # Assuming labels dictionary has emotions and causes
+        emotions_true = (
+            labels["emotion"].cpu().detach().numpy()
+        )  # Assuming labels dictionary has emotions and causes
         causes_true = labels["tagged"].squeeze(1).cpu().detach().numpy()
 
         # Assuming emotions_pred and causes_pred are tensors

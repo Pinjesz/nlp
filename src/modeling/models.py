@@ -8,27 +8,26 @@ import torch
 from torch import nn
 
 
-class BertMultitask(BertPreTrainedModel):
-    def __init__(self, config):
-        super().__init__(config)
+class BertMultitask(nn.Module):
+    def __init__(self, cfg):
+        super().__init__()
         self.sequence_num_labels = 7  # tyle ile emocji
         self.causes_num_labels = 3
-        self.config = config
 
-        self.bert = BertModel(config)
+        self.bert = BertModel.from_pretrained(cfg.model_name)
+
         classifier_dropout = (
-            config.classifier_dropout
-            if config.classifier_dropout is not None
-            else config.hidden_dropout_prob
+            self.bert.config.classifier_dropout
+            if self.bert.config.classifier_dropout is not None
+            else self.bert.config.hidden_dropout_prob
         )
         self.dropout = nn.Dropout(classifier_dropout)
         self.classifier_emotions = nn.Linear(
-            config.hidden_size, self.sequence_num_labels
+            self.bert.config.hidden_size, self.sequence_num_labels
         )
-        self.classifier_causes = nn.Linear(config.hidden_size, self.causes_num_labels)
-
-        # Initialize weights and apply final processing
-        self.post_init()
+        self.classifier_causes = nn.Linear(
+            self.bert.config.hidden_size, self.causes_num_labels
+        )
 
     def forward(
         self,
