@@ -1,10 +1,13 @@
-batch_size: 4
-num_epochs: 5
+batch_size: 64
+num_epochs: 200
 val_size: 0.15
 test_size: 0.15
-lr: 2e-5
-num_workers: 6
+lr: 1e-5
+num_workers: 16
 label_smoothing: 0.1
 tokenize_data_path: data/tokenized/train.pkl
-model_name: bert-base-cased
-training_strategy: heads
+model_name: bert-base-uncased
+training_strategy:
+early_stopping:
+  min_delta: 0.0
+  patience: 20

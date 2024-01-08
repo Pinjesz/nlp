@@ -34,7 +34,11 @@ def main(cfg: DictConfig):
         save_last=True,
     )
     early_stop_callback = EarlyStopping(
-        monitor="val_loss", min_delta=0.0, patience=3, verbose=True, mode="min"
+        monitor="val_loss",
+        min_delta=cfg.early_stopping.min_delta,
+        patience=cfg.early_stopping.patience,
+        verbose=True,
+        mode="min",
     )
 
     base_ds = TrainDataset(cfg.tokenize_data_path)
@@ -75,6 +79,8 @@ def main(cfg: DictConfig):
         devices=1,
         accelerator=accelerator,
         callbacks=[checkpoint_callback, early_stop_callback],
+        enable_progress_bar=False,
+        precision="bf16",
     )
 
     trainer.fit(model, train_dataloaders=train_loader, val_dataloaders=val_loader)

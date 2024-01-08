@@ -18,7 +18,7 @@ class BertMultitaskPL(pl.LightningModule):
             for param in self.bert_model.bert.parameters():
                 param.requires_grad = False
 
-        self.emotion_loss = CrossEntropyLoss()
+        self.emotion_loss = CrossEntropyLoss(label_smoothing=cfg.label_smoothing)
         self.causes_loss = CrossEntropyLoss(label_smoothing=cfg.label_smoothing)
 
     def forward(self, *args, **kwargs):
@@ -43,7 +43,7 @@ class BertMultitaskPL(pl.LightningModule):
                 "train_emotion_loss": emotion_loss,
                 "train_causes_loss": causes_loss,
                 "train_loss": loss,
-            }
+            }, on_epoch=True
         )
         return loss
 
@@ -84,8 +84,8 @@ class BertMultitaskPL(pl.LightningModule):
         causes_pred = torch.argmax(logits_causes, dim=-1)
         emotions_true = labels[
             "emotion"
-        ]  # Assuming labels dictionary has emotions and causes
-        causes_true = labels["tagged"].squeeze(1)
+        ].cpu().detach().numpy()  # Assuming labels dictionary has emotions and causes
+        causes_true = labels["tagged"].squeeze(1).cpu().detach().numpy()
 
         # Assuming emotions_pred and causes_pred are tensors
         emotions_pred = emotions_pred.cpu().detach().numpy()
