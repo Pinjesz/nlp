@@ -6,3 +6,5 @@ pytorch_lightning
 ipykernel
 scikit-learn
 torch
+hydra-core
+omegaconf

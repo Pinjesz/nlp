@@ -1,3 +1,3 @@
 export PYTHONPATH="."
 
-python src/models/train.py
+python src/train.py
