@@ -1,9 +1,6 @@
 from typing import Optional
 
-from transformers import (
-    BertModel,
-    BertPreTrainedModel,
-)
+from transformers import BertModel, BertConfig
 import torch
 from torch import nn
 
@@ -13,9 +10,11 @@ class BertMultitask(nn.Module):
         super().__init__()
         self.sequence_num_labels = 7  # tyle ile emocji
         self.causes_num_labels = 3
+        config = BertConfig(
+            hidden_dropout_prob=cfg.model.hidden_dropout_prob,
+        )
 
-        self.bert = BertModel.from_pretrained(cfg.model_name)
-        self.bert.config.hidden_dropout_prob = cfg.model.hidden_dropout_prob
+        self.bert = BertModel.from_pretrained(cfg.model_name, config)
 
         classifier_dropout = (
             self.bert.config.classifier_dropout
@@ -43,7 +42,7 @@ class BertMultitask(nn.Module):
         return_dict: Optional[bool] = None,
     ):
         return_dict = (
-            return_dict if return_dict is not None else self.config.use_return_dict
+            return_dict if return_dict is not None else self.bert.config.use_return_dict
         )
 
         outputs = self.bert(
