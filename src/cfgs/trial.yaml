@@ -1,0 +1,5 @@
+batch_size: 64
+num_workers: 12
+tokenize_data_path: data/tokenized/trial.pkl
+checkpoint: eeee
+out_file: out.json

@@ -155,3 +155,6 @@ class BertMultitaskPL(pl.LightningModule):
             optimizer_grouped_parameters,
             lr=self.learning_rate,
         )
+
+    def predict_step(self, batch, batch_idx):
+        return self(batch)
