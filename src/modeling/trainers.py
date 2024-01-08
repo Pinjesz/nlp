@@ -20,6 +20,8 @@ class BertMultitaskPL(pl.LightningModule):
         self.emotion_loss = CrossEntropyLoss(label_smoothing=cfg.label_smoothing)
         self.causes_loss = CrossEntropyLoss(label_smoothing=cfg.label_smoothing)
 
+        self.weight_decay_rate = cfg.weight_decay
+
     def forward(self, *args, **kwargs):
         return self.bert_model(*args, **kwargs)
 
@@ -140,7 +142,7 @@ class BertMultitaskPL(pl.LightningModule):
                 "params": [
                     p for n, p in param_optimizer if not any(nd in n for nd in no_decay)
                 ],
-                "weight_decay_rate": 0.01,
+                "weight_decay_rate": self.weight_decay_rate,
             },
             {
                 "params": [

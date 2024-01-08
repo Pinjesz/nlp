@@ -15,6 +15,7 @@ class BertMultitask(nn.Module):
         self.causes_num_labels = 3
 
         self.bert = BertModel.from_pretrained(cfg.model_name)
+        self.bert.config.hidden_dropout_prob = cfg.model.hidden_dropout_prob
 
         classifier_dropout = (
             self.bert.config.classifier_dropout

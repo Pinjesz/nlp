@@ -18,7 +18,7 @@ import hydra
 from omegaconf import DictConfig, OmegaConf
 
 
-@hydra.main(version_base=None, config_path=".", config_name="config.yaml")
+@hydra.main(version_base=None, config_path="cfgs", config_name="config.yaml")
 def main(cfg: DictConfig):
     today_date = datetime.today().strftime(r"%d-%m-%Y")
     project_name = f"nlp-{today_date}"
@@ -84,9 +84,13 @@ def main(cfg: DictConfig):
     )
 
     trainer.fit(model, train_dataloaders=train_loader, val_dataloaders=val_loader)
-    result = trainer.test(dataloaders=test_loader, model=model)
 
-    print(result)
+    trainer.test(
+        dataloaders=test_loader,
+        model=model,
+        ckpt_path=checkpoint_callback.best_model_path,
+        verbose=True,
+    )
 
 
 if __name__ == "__main__":
