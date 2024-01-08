@@ -2,5 +2,7 @@ tokenizers
 transformers
 wandb
 numpy
-lightning
+pytorch_lightning
 ipykernel
+scikit-learn
+torch
