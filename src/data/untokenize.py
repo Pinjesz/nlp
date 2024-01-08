@@ -1,14 +1,14 @@
 import json
 import torch
 from transformers import BertTokenizerFast
-from tokenize_data import *
+from .tokenize_data import *
 
 
-def untokenize(predicted:list):
+def untokenize(predicted: list):
     """
     `predicted = [{"conversation_ID" : <int>, "utterance_ID" : <int>, "word_ids":<list[int, None]>, "emotion": <int>, "tagged": <pytorch.tensor>}, ...]`
     """
-    pairs:dict[int, list[list[str]]] = {}
+    pairs: dict[int, list[list[str]]] = {}
 
     for p in predicted:
         if pairs.get(p["conversation_ID"]) is None:
@@ -16,9 +16,17 @@ def untokenize(predicted:list):
         spans = []
         start = None
         for i, tag in enumerate(p["tagged"][0]):
-            if tag.item() == category_to_index["B-cause"] and start is None and p["word_ids"][i] >= 0:
+            if (
+                tag.item() == category_to_index["B-cause"]
+                and start is None
+                and p["word_ids"][i] >= 0
+            ):
                 start = i
-            if start is not None and tag.item() != category_to_index["B-cause"] and tag.item() != category_to_index["I-cause"]:
+            if (
+                start is not None
+                and tag.item() != category_to_index["B-cause"]
+                and tag.item() != category_to_index["I-cause"]
+            ):
                 spans.append([start, i])
                 start = None
 
@@ -32,7 +40,12 @@ def untokenize(predicted:list):
         for start, end in spans:
             if idx_to_utterance[start] != idx_to_utterance[end]:
                 continue
-            pairs[p["conversation_ID"]].append([f'{p["utterance_ID"]}_{index_to_emotion[p["emotion"]]}', f"{idx_to_utterance[start]}_{start}_{end}"])
+            pairs[p["conversation_ID"]].append(
+                [
+                    f'{p["utterance_ID"]}_{index_to_emotion[p["emotion"]]}',
+                    f"{idx_to_utterance[start]}_{start}_{end}",
+                ]
+            )
 
     conversation_ids = sorted(pairs.keys())
 
@@ -44,11 +57,13 @@ def untokenize(predicted:list):
         for conv_id in conversation_ids:
             con_pairs = pairs[conv_id]
             data_con = data[conv_id - 1]
-            result.append({
-                "conversation_ID": conv_id,
-                "conversation":data_con["conversation"],
-                "emotion-cause_pairs":con_pairs
-            })
+            result.append(
+                {
+                    "conversation_ID": conv_id,
+                    "conversation": data_con["conversation"],
+                    "emotion-cause_pairs": con_pairs,
+                }
+            )
 
     return result
 
@@ -66,12 +81,17 @@ if __name__ == "__main__":
     for j, en in enumerate(tokens["input_ids"]):
         if en == tokenizer.sep_token_id:
             word_ids[j] = -10
-    pred = [{"conversation_ID": 1,
-             "utterance_ID": 2,
-             "word_ids" : word_ids,
-             "emotion": 1,
-             "tagged": torch.tensor([[-100, 0, 0, 1, 1, 1, 2, 2, -100, 2, 2, 2, 0, 1, 1, 2, 2, 2, 2, -100]])
-             }]
+    pred = [
+        {
+            "conversation_ID": 1,
+            "utterance_ID": 2,
+            "word_ids": word_ids,
+            "emotion": 1,
+            "tagged": torch.tensor(
+                [[-100, 0, 0, 1, 1, 1, 2, 2, -100, 2, 2, 2, 0, 1, 1, 2, 2, 2, 2, -100]]
+            ),
+        }
+    ]
 
     data = untokenize(pred)
     with open(untokenized_data_path, "w") as file:

@@ -3,10 +3,10 @@ from torch.utils import data
 
 
 class TrainDataset(data.Dataset):
-    def __init__(self) -> None:
+    def __init__(self, tokenized_data_path) -> None:
         super().__init__()
         # data = get_tokenized_data("bert-base-cased")
-        tokenized_data_path = "data/tokenized/train.pkl"
+        # tokenized_data_path = "data/tokenized/train.pkl"
 
         with open(tokenized_data_path, "rb") as file:
             data = pickle.load(file)
