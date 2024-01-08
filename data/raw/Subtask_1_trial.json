@@ -1,0 +1,1982 @@
+[
+    {
+        "conversation_ID": 1,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Okay ...",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Basically , you wanna use one machine for all your whites .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Whites . Okay .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "A whole other machine for your colors . And then a third for your , uh ...",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "uh ... delicates . And that would be your bras ... and your underpanty things .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Ok , Well , what about these are white cotton panties . Would they go with whites or delicates ?",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "Uh , that , that , that would be a judgment call .",
+                "speaker": "Ross"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 2,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "I am sorry it did not work out .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "What not work out ? I am seeing her again on Thursday .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Did not you listen to the story ?",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Did not you listen to the story ?",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "I mean , this is twisted ! How could you get involved with a woman like this ?",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Well , you know , I had some trouble with it at first too , but the way I look at it is , I get all the good stuff : all the fun , all the talking , all the sex ; and none of the responsibility .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "This is every guy fantasy !",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "Oh , yeah . That is not true . Ross , is this your fantasy ?",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "No , of course not .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "Yeah . Yeah , it is .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "So you guys do not mind going out with someone else who is going out with someone else ?",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 12,
+                "text": "I could not do it .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 13,
+                "text": "Good for you , Joey .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 14,
+                "text": "When I am with a woman , I need to know that I am going out with more people than she is .",
+                "speaker": "Joey"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 3,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "How could you not get it ? You were Santa last year .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "I do not know . Some fat guy sleeping with the store manager .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "He is not even jolly . It is all political .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "So , what are you gonna be ?",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "I am gonna be one of his helpers . It is just such a slap in the face , you know ?",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Do you guys know what you are doing for New Year ?",
+                "speaker": "Rachel"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 4,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "How is this ?",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Eek !",
+                "speaker": "Steve"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Sorry . How about over here ?",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Oh !",
+                "speaker": "Steve"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "See , now , that just means it is working .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Does this hurt ?",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "No .",
+                "speaker": "Steve"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "How about this ?",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "Aah !",
+                "speaker": "Steve"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "There you go .",
+                "speaker": "Phoebe"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 5,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Okay , thank you very much . I am gonna take a short break .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Okay , that was Phoebe Buffay , everybody . Whoo !",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "What was that ?",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Oh , uh , Phoebe just started a ...",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "I believe I was talking to Joey , alright there , Mother ... Kisser ?",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Mother ... kisser .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "I will shut up .",
+                "speaker": "Joey"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 6,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Okay .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Mail call . Rachel Green , bunk seven .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Thank you .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Oh , cool . A free sample of coffee .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "Oh , good , because where else would we get any ? Ha , ha .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Oh , right .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "Oh , great .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "What is it ?",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "Country club newsletter .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "My mother sends me the engagement notices for inspiration .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "Oh , my God .",
+                "speaker": "Rachel"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 7,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Alright , look , I will start , OK ?",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Joey , please .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Come on , come on . All right , ready ? Look .",
+                "speaker": "Joey"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 8,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Oh , gosh . I am so glad you liked them .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Like them ? I could eat a hundred of them .",
+                "speaker": "Steve"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Oh . Well , um ...",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "That is all there is of these ... but in about eight and a half minutes , we will be serving some delicious tartlets .",
+                "speaker": "Monica"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 9,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Hey , hey . How was the first day ?",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Hey . Oh .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Excellent . Everyone was so , so nice .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "See ? It pays to know the man who wears my shoes .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "Me .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Ah .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "No . I did not tell anybody that I knew you .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "Why not ?",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "Well , because , you know .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "They do not like you .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "What ?",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 12,
+                "text": "I thought you knew that .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 13,
+                "text": "Nah ... uh .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 14,
+                "text": "Who does not like me ?",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 15,
+                "text": "Everyone .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 16,
+                "text": "Except for , um ... No . Everyone .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 17,
+                "text": "What are you talking about ?",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 18,
+                "text": "Do not feel bad .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 19,
+                "text": "You know , they used to like you a lot .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 20,
+                "text": "But then you got promoted , and now you are all , like , Mr . Boss ... Man .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 21,
+                "text": "You know , Mr . Bing . Mr . Bing . Boss ... Man Bing .",
+                "speaker": "Phoebe"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 10,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Rachel , the cute doctors are here .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Okay , coming .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Hi , come on in . Hey , Michael , Jeffrey .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Hi .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "Uh , here , we brought wine .",
+                "speaker": "Dr. Rosen"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Look at this . It is from the cellars of Ernest and Tova Borgnine . So ...",
+                "speaker": "Dr. Mitchell"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "How could we resist ?",
+                "speaker": "Dr. Mitchell"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "Oh , that is great . Look at that .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "So , Monica , how is the ankle ?",
+                "speaker": "Dr. Rosen"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 11,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Well , not a problem . We will use them to stop the bleeding .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Okay . Uh , baggage claim ?",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Okay .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Okay .",
+                "speaker": "Julie"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "No way .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "I am telling you , she went to the airport . And she is gonna go for it with Ross .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "Oh , my God . This is huge . This ... This is bigger than huge . This is ...",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "All right , what is bigger than huge ?",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "Um , this ?",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "Yes .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "Guys , you got new haircuts !",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 12,
+                "text": "Yes , yes , we did . Thanks to Vidal Buffay .",
+                "speaker": "Chandler"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 12,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Ironically , these guys were picked last in gym .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Hey , Pheebs .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "You know what I am thinking ?",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Oh , okay .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "How ... it is been so long since you have had sex ... you are wondering if they have changed it ?",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "No . Although now that is what I am thinking .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "So , what were you thinking ?",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "I was thinking you gave the guys great haircuts . I thought you would like to do mine .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "Oh ! No .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "Why not ?",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "Because I am just ...",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 12,
+                "text": "I am incredibly anal and an unbelievable control freak .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 13,
+                "text": "No , you are not .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 14,
+                "text": "I know I am not , but you are .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 15,
+                "text": "I was trying to spare your feelings .",
+                "speaker": "Phoebe"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 13,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "I want a baby .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Hmm . Not tonight , honey . I got an early day tomorrow .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Get up . Come on , let us get some coffee .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Oh , okay , because we never do that .",
+                "speaker": "Chandler"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 14,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "We want you to be happy . And I may only have a couple beers in me , but I love you , man .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "I am still on my first . I ...",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "I just think you are nice .",
+                "speaker": "Chandler"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 15,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Anyway , that is when me and my friends started this fruit ... basket business . We call ourselves \" The Three Basketeers . \" Ha , ha .",
+                "speaker": "Melanie"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Like \" The Three Musketeers , \" only with fruit .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Oh !",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Okay .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "How do you like your burgers ?",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Oh , no , no , no . Presents first , food later !",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "Hold on there , tiger .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "How is it going ? How you holding up ?",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "Well , not so good . She definitely thinks tonight is the night we are gonna ... complete the transaction , if you know what I ...",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "And you do . Heh .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "So , uh , have you ever thought about being there for her ?",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 12,
+                "text": "What do you mean ?",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 13,
+                "text": "You know , just be there for her .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 14,
+                "text": "Not following you .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 15,
+                "text": "Think about it .",
+                "speaker": "Monica"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 16,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "That is a good plan , Joe . Next time we wanna pick up women , we should just go to the park and make out .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Taxi ! Taxi !",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Hey , hey , look at that talent .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Just practicing . You are good .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "Carry on .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Wait , wait , wait !",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "Hey , you . He is just adorable .",
+                "speaker": "Girl No. 1"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "Can you tell him that ? Because he thinks he looks too pink .",
+                "speaker": "Chandler"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 17,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Well , I think it went pretty well . I got a callback for Thursday .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Joey . Have you ever seen me ecstatic ?",
+                "speaker": "Estelle"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "No .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Well , here it is .",
+                "speaker": "Estelle"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "Okay . Uh , listen , there is something I want to talk to you about . The network casting lady ...",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Oh , is not Lori a doll ?",
+                "speaker": "Estelle"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "Yeah , yeah , she is great . But ...",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "I kind of got the feeling that she was sort of ... coming on to me .",
+                "speaker": "Joey"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 18,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "You are , you are the , you are , me play the songs that I will write for them .",
+                "speaker": "Phoebe"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 19,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Joey ?",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Ma ?",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Joey !",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Chandler ? What are you still doing here ? I thought you guys took off .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "Oh , no no no , she took off with my clothes !",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Are you naked in there ?",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "Well , not exactly .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "I am wearing panties .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "Huh , you uh , you always wear panties ?",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "No , no . This is the first time .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "Wow . Talk about your bad luck !",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 12,
+                "text": "I mean , the first time you try panties and someone walks off with your clothes .",
+                "speaker": "Joey"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 20,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Cut !",
+                "speaker": "Director"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Can not you see what is going on here ? This man is dying !",
+                "speaker": "Van Damme"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 21,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Okay , I told you not to do that yet . Okay .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "And she wants to do a video .",
+                "speaker": "Phoebe"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 22,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "All right , ahem , I can get you out .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "What ?",
+                "speaker": "Gunther"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Shh . In a minute , I am gonna create a diversion .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "When I do , walk quickly to the door and do not look back .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "I think I need a drink .",
+                "speaker": "Mr. Green"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Oh , I will get it for you .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "What do you want ? ... Scotch .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "All right , I will be back in 10 seconds with your Scotch on the rocks in a glass .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "Neat .",
+                "speaker": "Mr. Green"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "Cool .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "No , no , no .",
+                "speaker": "Mr. Green"
+            },
+            {
+                "utterance_ID": 12,
+                "text": "Neat , as in no rocks .",
+                "speaker": "Mr. Green"
+            },
+            {
+                "utterance_ID": 13,
+                "text": "Heh . I know .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 14,
+                "text": "Oh , hello , Ross . Now , where have you been ?",
+                "speaker": "Mrs. Geller"
+            },
+            {
+                "utterance_ID": 15,
+                "text": "Hi . Uh , I have been in the bathroom .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 16,
+                "text": "Ahem . Stay clear of the salmon mousse .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 17,
+                "text": "Oh . Scotch neat .",
+                "speaker": "Mrs. Geller"
+            },
+            {
+                "utterance_ID": 18,
+                "text": "You know , that is Rachel father drink .",
+                "speaker": "Mrs. Geller"
+            },
+            {
+                "utterance_ID": 19,
+                "text": "Oh . Huh . Mine too . Is not that neat ?",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 20,
+                "text": "Scotch neat .",
+                "speaker": "Ross"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 23,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Ugh , Ross !",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Ross , please listen to me . Ross , you are so much better for me than Paolo ever was .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "I mean you care about me , you are loving , you make me laugh .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Oh , hey , if I make you laugh , here is an idea . Why do not you invite Paulo over and have a little romp in the sack and I will just stand in the corner and tell knock ... knock jokes .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "Ross ! Agh ! God , Ross !",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Look , what you and I have is special , all Paolo and I ever had was ...",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "Animal sex , animal sex ?",
+                "speaker": "Ross"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 24,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Oh , not my parrot .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "What ?",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "I can not watch this .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Hey , hold on , hold on .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "How much for the , uh ? How much to save the bird ?",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Twelve hundred .",
+                "speaker": "Mover"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "Dollars ?",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "You spent $ 1200 on a plastic bird ?",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "Uh , it was an impulse buy . Near the register .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "Go ahead , go ahead with the bird .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "OK . Do you have anything for around $ 200 ?",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 12,
+                "text": "Uh .",
+                "speaker": "Mover"
+            },
+            {
+                "utterance_ID": 13,
+                "text": "The dog .",
+                "speaker": "Mover"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 25,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Get out your checkbook , mister .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Oh , I think I have the cash .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "You are dog , man .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "I totally fit .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "Yeah . You got me .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "I am out five big ones .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "There you go .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "Thank you . Cha ... ching .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "Oh , well , hello , Mr . Lincoln .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "Better luck next time , buddy .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "And the drinks are on me .",
+                "speaker": "Joey"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 26,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Hey , would you , uh ... ? Would you like some juice ?",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "I would love some juice .",
+                "speaker": "Mr. Green"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Okay .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Well , this is going so well . Did you see us ? Did you see ?",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "Yeah , honey . I was standing right there .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Why do not you tell him about the mole I have not gotten checked ?",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "Excellent .",
+                "speaker": "Ross"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 27,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Um , Alice , uh ... She , uh , called it off .",
+                "speaker": "Frank"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Oh , no .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Did , um ... Did she say why ?",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Uh , no , not really . Just that I was too young .",
+                "speaker": "Frank"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "You know I do not see how I could suddenly be too young ... because I am older than I was when we first got together .",
+                "speaker": "Frank"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Yeah , yeah , no , I do not ... I do not know . But you know what ? Maybe it is just all for the best .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "Well , yeah , if the best is like unbelievable pain .",
+                "speaker": "Frank"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "Oh , sweetie .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "You know , I was just finally happy .",
+                "speaker": "Frank"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "For the first time in my life ... after my dad left me ... and then getting arrested for stealing those birds ... and then the whole punctured ... lung thing .",
+                "speaker": "Frank"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "It is still really hard to take deep breaths in cold weather ... but with Alice , all that stuff kind of went away .",
+                "speaker": "Frank"
+            },
+            {
+                "utterance_ID": 12,
+                "text": "And now it is gone , and I do not know why .",
+                "speaker": "Frank"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 28,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "I want to thank you for being there for me .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "And I am sorry I almost broke your hand .",
+                "speaker": "Ross"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 29,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Eh , I\u2019m just so sorry I put you through it .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "And I do not want to get back together over a machine .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Na ... huh .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "So I love you .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "I love you .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "And you know what ? I\u2019m gonna , I\u2019m gonna go to bed now , but ah , on my way to work tomorrow morning , I\u2019m gonna stop by around 8 : 30 .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "Okay .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "Bye .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "Chloe , Chloe how\u2019s it coming ? !",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "Hey , what kind of puppy do you think I should get ?",
+                "speaker": "Chloe"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "Um , oh , hey . I do not know . How about a big one ?",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 12,
+                "text": "But my apartment so ...",
+                "speaker": "Chloe"
+            },
+            {
+                "utterance_ID": 13,
+                "text": "Well then a small one ! ! Listen , let\u2019s , we kinda have to get going !",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 14,
+                "text": "Wait ! Where\u2019s my shoes ?",
+                "speaker": "Chloe"
+            },
+            {
+                "utterance_ID": 15,
+                "text": "You , you sure you need shoes ?",
+                "speaker": "Ross"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 30,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "And there it is .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "I just came up to say hi . Hi .",
+                "speaker": "Janice"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 31,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "So Frank ...",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Three babies . Whoo , that just seems like a lot , huh ?",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Not to me .",
+                "speaker": "Frank"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Fair enough .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "You are at 10 centimeters . Time to start having babies .",
+                "speaker": "Dr. Harad"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "I want only the father here .",
+                "speaker": "Dr. Harad"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "We love you .",
+                "speaker": "All"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "Good luck .",
+                "speaker": "All"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "Bye , Dan !",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "Uh , bye , Monica .",
+                "speaker": "Dan"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 32,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Okay , that is amazing . How did you know that ?",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "You got ink on your lip .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Oh .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "What do you say , maybe , sometime I hold your gun ?",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "I do not know man , we are really not supposed to do that .",
+                "speaker": "Gary"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "What could happen ? I mean , would you\u2026",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "Yeah . I am gonna say no .",
+                "speaker": "Gary"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "Phoebe , do you want to see a movie after dinner tonight ?",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "Oh , we can not . We already have plans .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "What are you doing ?",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "Um , well , same thing we did all day . Just hang out at Gary apartment .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 12,
+                "text": "He is so amazing . We never left the bedroom .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 13,
+                "text": "But have fun at the movie .",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 14,
+                "text": "Uh , ha , ha . Well , we are not seeing a movie .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 15,
+                "text": "You are not ? Why did you ask us if we wanted to go ?",
+                "speaker": "Phoebe"
+            },
+            {
+                "utterance_ID": 16,
+                "text": "Oh , um , because I just wanted to know what you were doing ... so you would not walk in on me and Chandler ... while we were doing it all night .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 17,
+                "text": "Will you excuse me just a second ? Okay .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 18,
+                "text": "Yeah .",
+                "speaker": "Phoebe"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 33,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "There is something , um , important I have to tell you .",
+                "speaker": "Monica"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 34,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "You have done all you can , Dr . Wesley .",
+                "speaker": "Nurse"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "You have got to let her go .",
+                "speaker": "Nurse"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 35,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Ugh .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Hey , there are some men ... who will do whatever to make their marriage work .",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "There are some men who will stand by and watch ... as their wives engage in what can only be described as a \" twosome \" ... with some woman she barely knows from the gym !",
+                "speaker": "Ross"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "Who are these men ?",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "Just men . A guy I know .",
+                "speaker": "Ross"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 36,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "And then when you are old , Cappy .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "What the hell . It is for a good cause . All right !",
+                "speaker": "Mr. Bowmont"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "No way ! It is mine !",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "What ?",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "All the stuff you said , I want that !",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "But , Joey , you do not have $ 20000 !",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "Who cares ? I will make payments ! I want the Mr . Bowmont !",
+                "speaker": "Joey"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 37,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Let me ask you something .",
+                "speaker": "Tag"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "Uh",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Do you believe there is one perfect person for everyone ?",
+                "speaker": "Tag"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "I am starting to .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "If that person in your life , you should do something about it ?",
+                "speaker": "Tag"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "Yes . Hell , yes .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "All right , then , it is settled .",
+                "speaker": "Tag"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "Okay .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "I am getting back together with my ex .",
+                "speaker": "Tag"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "I would love to !",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "What ?",
+                "speaker": "Tag"
+            },
+            {
+                "utterance_ID": 12,
+                "text": "Hello ?",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 13,
+                "text": "Oh . This is gonna be a while . Excuse me .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 14,
+                "text": "Um , yeah .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 15,
+                "text": "Yeah .",
+                "speaker": "Rachel"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 38,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Wait . Before we go in , I just want you to know that I love you .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "And I had a great time on our honeymoon .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "I can not wait to go in there and spend the rest of our life together .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "You are sticking with the shell necklace , huh ?",
+                "speaker": "Monica"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 39,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "See ? I told you . ... She stole my jeans !",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "What ?",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "I have been looking for them all week and she is wearing them .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "So she stole your pants ... and then she came back and wore them in front of you ?",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "Do not you see ? It is the perfect crime .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "She must have been planning this for years .",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "I will prove it to you .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "About a week ago , I was wearing those jeans .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "I dropped a pen in my lap and it left an ink stain on the crotch .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "When she comes back , I will find it and show you that stain !",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "Is it possible the company that sold the jeans ... made more than just the one pair ?",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 12,
+                "text": "I guess .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 13,
+                "text": "So should not we give her the benefit of the doubt before we go ... snooping around her crotch ?",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 14,
+                "text": "Fine . I am just glad I did not give her my secret ingredient .",
+                "speaker": "Monica"
+            },
+            {
+                "utterance_ID": 15,
+                "text": "Heh . Out of curiosity , what is your secret ingredient ?",
+                "speaker": "Chandler"
+            },
+            {
+                "utterance_ID": 16,
+                "text": "Yeah . Ha ... ha ... ha .",
+                "speaker": "Monica"
+            }
+        ]
+    },
+    {
+        "conversation_ID": 40,
+        "conversation": [
+            {
+                "utterance_ID": 1,
+                "text": "Honey , it is not just a matter of where you put it .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 2,
+                "text": "A baby changes everything . They cry all the time .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 3,
+                "text": "Imagine bringing home some girl ... and trying to score when there is a screaming baby .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 4,
+                "text": "I could use a challenge . It is getting pretty easy .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 5,
+                "text": "It is so sweet that you want me to stay , but I can not do that to you .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 6,
+                "text": "I mean , it would disrupt your entire life .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 7,
+                "text": "It is just ... I love living with you so much .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 8,
+                "text": "I wish things did not have to change .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 9,
+                "text": "I know .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 10,
+                "text": "You know , I blame Ross for this .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 11,
+                "text": "I do too , a little bit .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 12,
+                "text": "Yeah .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 13,
+                "text": "I am gonna miss you .",
+                "speaker": "Joey"
+            },
+            {
+                "utterance_ID": 14,
+                "text": "You are the hottest roommate I ever had .",
+                "speaker": "Rachel"
+            },
+            {
+                "utterance_ID": 15,
+                "text": "Mm . Ooh .",
+                "speaker": "Phoebe"
+            }
+        ]
+    }
+]
