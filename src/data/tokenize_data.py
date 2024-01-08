@@ -115,6 +115,7 @@ def get_tokenized_data(tokenizer_checkpoint: str, data="data/raw/Subtask_1_train
 
     return tokenized, labels
 
+
 if __name__ == "__main__":
     tokenizer = "bert-base-cased"
     tokenized_data_path = "data/tokenized/train.pkl"
