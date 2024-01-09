@@ -1,5 +1,11 @@
-batch_size: 64
-num_workers: 12
+batch_size: 8
+num_workers: 1
 tokenize_data_path: data/tokenized/trial.pkl
-checkpoint: eeee
+checkpoint: nlp-09-01-2024/tld7ek6v/checkpoints/last.ckpt
 out_file: out.json
+model_name: bert-base-uncased
+training_strategy:
+model:
+  hidden_dropout_prob: 0.6
+weight_decay: 0.1
+lr: 0

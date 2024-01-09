@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from datetime import datetime
 import json
 
@@ -17,8 +18,8 @@ from omegaconf import DictConfig, OmegaConf
 def main(cfg: DictConfig):
     today_date = datetime.today().strftime(r"%d-%m-%Y")
     project_name = f"nlp-{today_date}"
-    wandb_logger = WandbLogger(project=project_name, entity="jasiekjeschke")
-    wandb_logger.experiment.config.update({**cfg})
+    # wandb_logger = WandbLogger(project=project_name, entity="jasiekjeschke")
+    # wandb_logger.experiment.config.update({**cfg})
 
     trial_set = TrialDataset(cfg.tokenize_data_path)
 
@@ -31,16 +32,16 @@ def main(cfg: DictConfig):
     accelerator = "gpu" if torch.cuda.is_available() else "cpu"
     trainer = pl.Trainer(
         devices=1,
-        logger=wandb_logger,
+        # logger=wandb_logger,
         accelerator=accelerator,
         precision="bf16-mixed",
     )
 
-    model = BertMultitaskPL.load_from_checkpoint(cfg.checkpoint)
+    model = BertMultitaskPL(cfg).load_from_checkpoint(cfg.checkpoint)
 
     predictions = trainer.predict(model, trial_loader)
 
-    print(predictions) # co tu będzie?
+    print(predictions)  # co tu będzie?
 
     untokenized = untokenize(predictions)
 

@@ -157,4 +157,15 @@ class BertMultitaskPL(pl.LightningModule):
         )
 
     def predict_step(self, batch, batch_idx):
+        tokens = batch
+        logits_emotions, logits_causes = self(
+            input_ids=tokens["input_ids"],
+            attention_mask=tokens["attention_mask"],
+            token_type_ids=tokens["token_type_ids"],
+        )
+        emotions_pred = torch.argmax(logits_emotions, dim=-1)
+        causes_pred = torch.argmax(logits_causes, dim=-1)
+
+        emotions_pred = emotions_pred.cpu().detach().numpy()
+        causes_pred = causes_pred.cpu().detach().numpy()
         return self(batch)
