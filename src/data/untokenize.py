@@ -11,6 +11,8 @@ def untokenize(predicted: list, data_path: str):
     pairs: dict[int, list[list[str]]] = {}
 
     for p in predicted:
+        if index_to_emotion(p["emotion"]) == "neutral":
+            continue
         if pairs.get(p["conversation_ID"]) is None:
             pairs[p["conversation_ID"]] = []
         spans = []
