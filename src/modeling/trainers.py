@@ -166,6 +166,6 @@ class BertMultitaskPL(pl.LightningModule):
         emotions_pred = torch.argmax(logits_emotions, dim=-1)
         causes_pred = torch.argmax(logits_causes, dim=-1)
 
-        emotions_pred = emotions_pred.cpu().detach().numpy()
-        causes_pred = causes_pred.cpu().detach().numpy()
-        return self(batch)
+        emotions_pred = emotions_pred.cpu().detach()
+        causes_pred = causes_pred.cpu().detach()
+        return emotions_pred, causes_pred

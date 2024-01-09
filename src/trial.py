@@ -34,15 +34,21 @@ def main(cfg: DictConfig):
         devices=1,
         # logger=wandb_logger,
         accelerator=accelerator,
-        precision="bf16-mixed",
+        # precision="bf16-mixed",
     )
 
-    model = BertMultitaskPL(cfg).load_from_checkpoint(cfg.checkpoint)
+    # model = BertMultitaskPL(cfg).load_from_checkpoint(cfg.checkpoint)
+    model = BertMultitaskPL(cfg)
 
     predictions = trainer.predict(model, trial_loader)
+    emotions = torch.cat(
+        [pred[0] for pred in predictions], dim=0
+    )  # shape: [dataset_length]
+    causes = torch.cat(
+        [pred[1] for pred in predictions], dim=0
+    )  # shape: [dataset_length, 512]
 
-    print(predictions)  # co tu będzie?
-
+    # FIXME: emotions i causes na untokanizer
     untokenized = untokenize(predictions)
 
     with open(cfg.out_file, "w") as file:
