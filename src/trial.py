@@ -36,26 +36,27 @@ def main(cfg: DictConfig):
         accelerator=accelerator,
         # precision="bf16-mixed",
     )
-
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     model = BertMultitaskPL(cfg)
-    # model = BertMultitaskPL.load_from_checkpoint(cfg.checkpoint)
+    ckpt = torch.load(cfg.checkpoint, map_location=device)
+    model.load_state_dict(ckpt["state_dict"])
 
     predictions = trainer.predict(model, trial_loader)
     emotions = torch.cat(
         [pred[0] for pred in predictions], dim=0
-    )  # shape: [dataset_length]
+    ).cpu()  # shape: [dataset_length]
     causes = torch.cat(
         [pred[1] for pred in predictions], dim=0
-    )  # shape: [dataset_length, 512]
+    ).cpu()  # shape: [dataset_length, 512]
     con_IDs = torch.cat(
         [pred[2] for pred in predictions], dim=0
-    )  # shape: [dataset_length]
+    ).cpu()  # shape: [dataset_length]
     utt_IDs = torch.cat(
         [pred[3] for pred in predictions], dim=0
-    )  # shape: [dataset_length]
+    ).cpu()  # shape: [dataset_length]
     word_ids = torch.cat(
         [pred[4] for pred in predictions], dim=0
-    )  # shape: [dataset_length, 512]
+    ).cpu()  # shape: [dataset_length, 512]
 
     container = []
     for i in range(len(trial_set)):

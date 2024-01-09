@@ -2,7 +2,7 @@ batch_size: 8
 num_workers: 1
 data_path: data/raw/Subtask_1_trial.json
 tokenize_data_path: data/tokenized/trial.pkl
-checkpoint: src/utils/test/last.ckpt
+checkpoint: nlp-09-01-2024-comparison/keagizyf/checkpoints/model-epoch=02-val_loss=2.06.ckpt
 out_file: out.json
 model_name: bert-base-uncased
 training_strategy:
