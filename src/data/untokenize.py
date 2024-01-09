@@ -50,10 +50,12 @@ def untokenize(predicted: list, data_path: str):
     with open(data_path, "r") as file:
         data = json.load(file)
 
+        data_by_id = {d["conversation_ID"]: d for d in data}
+
         result = []
         for conv_id in conversation_ids:
             con_pairs = pairs[conv_id]
-            data_con = data[conv_id - 1]
+            data_con = data_by_id[conv_id]
             result.append(
                 {
                     "conversation_ID": conv_id,
