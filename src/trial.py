@@ -37,8 +37,8 @@ def main(cfg: DictConfig):
         # precision="bf16-mixed",
     )
 
-    # model = BertMultitaskPL(cfg).load_from_checkpoint(cfg.checkpoint)
     model = BertMultitaskPL(cfg)
+    # model = BertMultitaskPL.load_from_checkpoint(cfg.checkpoint)
 
     predictions = trainer.predict(model, trial_loader)
     emotions = torch.cat(
@@ -47,12 +47,32 @@ def main(cfg: DictConfig):
     causes = torch.cat(
         [pred[1] for pred in predictions], dim=0
     )  # shape: [dataset_length, 512]
+    con_IDs = torch.cat(
+        [pred[2] for pred in predictions], dim=0
+    )  # shape: [dataset_length]
+    utt_IDs = torch.cat(
+        [pred[3] for pred in predictions], dim=0
+    )  # shape: [dataset_length]
+    word_ids = torch.cat(
+        [pred[4] for pred in predictions], dim=0
+    )  # shape: [dataset_length, 512]
 
-    # FIXME: emotions i causes na untokanizer
-    untokenized = untokenize(predictions)
+    container = []
+    for i in range(len(trial_set)):
+        container.append(
+            {
+                "conversation_ID": con_IDs[i].item(),
+                "utterance_ID": utt_IDs[i].item(),
+                "word_ids": word_ids[i].tolist()[0],
+                "emotion": emotions[i].item(),
+                "tagged": causes[i].tolist(),
+            }
+        )
+
+    untokenized = untokenize(container, cfg.data_path)
 
     with open(cfg.out_file, "w") as file:
-        json.dump(untokenized, file)
+        json.dump(untokenized, file, indent=4)
 
 
 if __name__ == "__main__":

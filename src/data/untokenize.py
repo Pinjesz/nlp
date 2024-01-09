@@ -4,7 +4,7 @@ from transformers import BertTokenizerFast
 from .tokenize_data import *
 
 
-def untokenize(predicted: list):
+def untokenize(predicted: list, data_path: str):
     """
     `predicted = [{"conversation_ID" : <int>, "utterance_ID" : <int>, "word_ids":<list[int, None]>, "emotion": <int>, "tagged": <pytorch.tensor>}, ...]`
     """
@@ -15,17 +15,17 @@ def untokenize(predicted: list):
             pairs[p["conversation_ID"]] = []
         spans = []
         start = None
-        for i, tag in enumerate(p["tagged"][0]):
+        for i, tag in enumerate(p["tagged"]):
             if (
-                tag.item() == category_to_index["B-cause"]
+                tag == category_to_index["B-cause"]
                 and start is None
                 and p["word_ids"][i] >= 0
             ):
                 start = i
             if (
                 start is not None
-                and tag.item() != category_to_index["B-cause"]
-                and tag.item() != category_to_index["I-cause"]
+                and tag != category_to_index["B-cause"]
+                and tag != category_to_index["I-cause"]
             ):
                 spans.append([start, i])
                 start = None
@@ -49,7 +49,6 @@ def untokenize(predicted: list):
 
     conversation_ids = sorted(pairs.keys())
 
-    data_path = "data/raw/Subtask_1_train.json"
     with open(data_path, "r") as file:
         data = json.load(file)
 
@@ -69,6 +68,7 @@ def untokenize(predicted: list):
 
 
 if __name__ == "__main__":
+    data_path = "data/raw/Subtask_1_train.json"
     tokenizer_checkpoint = "bert-base-cased"
     untokenized_data_path = "data/tokenized/out.json"
 
@@ -87,12 +87,11 @@ if __name__ == "__main__":
             "utterance_ID": 2,
             "word_ids": word_ids,
             "emotion": 1,
-            "tagged": torch.tensor(
-                [[-100, 0, 0, 1, 1, 1, 2, 2, -100, 2, 2, 2, 0, 1, 1, 2, 2, 2, 2, -100]]
-            ),
+            "tagged": [-100, 0, 0, 1, 1, 1, 2, 2, -100, 2, 2, 2, 0, 1, 1, 2, 2, 2, 2, -100]
+            ,
         }
     ]
 
-    data = untokenize(pred)
+    data = untokenize(pred, data_path)
     with open(untokenized_data_path, "w") as file:
         json.dump(data, file)

@@ -70,7 +70,7 @@ def get_tokenized_data(tokenizer_checkpoint: str, data="data/raw/Subtask_1_train
                     "attention_mask": torch.tensor([encoded["attention_mask"]]),
                     "conversation_ID": conversation["conversation_ID"],
                     "utterance_ID": i + 1,
-                    "word_ids": word_ids,
+                    "word_ids": torch.tensor([word_ids]),
                 }
             )
 

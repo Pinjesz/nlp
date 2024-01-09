@@ -168,4 +168,4 @@ class BertMultitaskPL(pl.LightningModule):
 
         emotions_pred = emotions_pred.cpu().detach()
         causes_pred = causes_pred.cpu().detach()
-        return emotions_pred, causes_pred
+        return emotions_pred, causes_pred, tokens["conversation_ID"], tokens["utterance_ID"], tokens["word_ids"]

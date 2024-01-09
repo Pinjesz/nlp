@@ -1,7 +1,8 @@
 batch_size: 8
 num_workers: 1
+data_path: data/raw/Subtask_1_trial.json
 tokenize_data_path: data/tokenized/trial.pkl
-checkpoint: nlp-09-01-2024/tld7ek6v/checkpoints/last.ckpt
+checkpoint: src/utils/test/last.ckpt
 out_file: out.json
 model_name: bert-base-uncased
 training_strategy:
