@@ -39,13 +39,33 @@ def untokenize(predicted: list, data_path: str):
 
         for start, end in spans:
             if idx_to_utterance[start] != idx_to_utterance[end]:
-                continue
-            pairs[p["conversation_ID"]].append(
-                [
-                    f'{p["utterance_ID"]}_{index_to_emotion[p["emotion"]]}',
-                    f"{idx_to_utterance[start]}_{start}_{end}",
-                ]
-            )
+                pointer = start
+                current = idx_to_utterance[start]
+                while pointer < end:
+                    if current != idx_to_utterance[pointer] or p["word_ids"][pointer] == -10:
+                        pairs[p["conversation_ID"]].append(
+                            [
+                                f'{p["utterance_ID"]}_{index_to_emotion[p["emotion"]]}',
+                                f"{idx_to_utterance[start]}_{start}_{pointer}",
+                            ]
+                        )
+                        pointer+=1
+                        start = pointer
+                        current = idx_to_utterance[start]
+                    pointer += 1
+                pairs[p["conversation_ID"]].append(
+                    [
+                        f'{p["utterance_ID"]}_{index_to_emotion[p["emotion"]]}',
+                        f"{idx_to_utterance[start]}_{start}_{pointer}",
+                    ]
+                )
+            else:
+                pairs[p["conversation_ID"]].append(
+                    [
+                        f'{p["utterance_ID"]}_{index_to_emotion[p["emotion"]]}',
+                        f"{idx_to_utterance[start]}_{start}_{end}",
+                    ]
+                )
 
     conversation_ids = sorted(pairs.keys())
 
@@ -79,7 +99,7 @@ if __name__ == "__main__":
     tokens = tokenizer(text)
     word_ids = tokens.word_ids()
     for j, en in enumerate(tokens["input_ids"]):
-        if en == tokenizer.sep_token_id:
+        if en == tokenizer.sep_token_id or word_ids[j] is None:
             word_ids[j] = -10
     pred = [
         {
@@ -87,7 +107,7 @@ if __name__ == "__main__":
             "utterance_ID": 2,
             "word_ids": word_ids,
             "emotion": 1,
-            "tagged": [-100, 0, 0, 1, 1, 1, 2, 2, -100, 2, 2, 2, 0, 1, 1, 2, 2, 2, 2, -100]
+            "tagged": [-100, 0, 0, 1, 2, 2, 0, 1, 1, 1, 1, 1, 2, 2, 0, 1, 1, 2, 2, -100]
             ,
         }
     ]
