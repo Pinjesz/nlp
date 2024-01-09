@@ -1,5 +1,8 @@
 # NLP
 
+Hondra Piotr, Jeschke Jan
+Warsaw University of Technology
+
 NLP project - SemEval-2024_ECAC subtask 1
 
 ## Environment
