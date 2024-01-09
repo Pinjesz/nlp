@@ -4,9 +4,7 @@ import sys
 sys.path.append("/Users/piotr/Documents/studia/mgr/SEM3/NLP/nlp/src")
 
 import torch
-import pandas as pd
 from data.datasets import TrainDataset
-import pandas as pd
 import torch
 
 VAL_SIZE = 0.15

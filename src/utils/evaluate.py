@@ -2,12 +2,6 @@
 import sys, os, json, copy, string
 import numpy as np
 
-if len(sys.argv) > 1:
-    [_, input_dir, output_dir] = sys.argv
-else:
-    input_dir = './'
-    output_dir = './'
-
 emotion_idx = dict(zip(['neutral','anger', 'disgust', 'fear', 'joy', 'sadness', 'surprise'], range(7)))
 
 
@@ -279,17 +273,21 @@ def eval(pred_data, gold_data):
 
 
 if __name__ == "__main__":
-    output_file = open(os.path.join(output_dir, "scores.json"), "w")
+    gold_file = "Subtask_1_gold.json"
+    pred_file = "Subtask_1_pred.json"
+    output_file = "scores.json"
+    if len(sys.argv) > 1:
+        [_, gold_file, pred_file, output_file] = sys.argv
+
     participate_subtask_num = 0
-    gold_file = os.path.join(input_dir, "Subtask_1_gold.json")
-    pred_file = os.path.join(input_dir, "Subtask_1_pred.json")
 
     if os.path.exists(pred_file):
         participate_subtask_num += 1
         pred_data = get_json_data(pred_file)
         gold_data = get_json_data(gold_file)
         result = eval(pred_data, gold_data)
-        json.dump(result, output_file, indent=4)
+        with open(output_file, "w") as file:
+            json.dump(result, file, indent=4)
 
     if participate_subtask_num == 0:
         sys.exit("Could not find valid json file in your zip package!")
