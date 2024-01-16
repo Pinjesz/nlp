@@ -13,69 +13,49 @@ def untokenize(predicted: list, data_path: str):
     for p in predicted:
         if pairs.get(p["conversation_ID"]) is None:
             pairs[p["conversation_ID"]] = []
-        spans = []
-        start = None
-        for i, tag in enumerate(p["tagged"]):
-            if (
-                tag == category_to_index["B-cause"]
-                and start is None
-                and p["word_ids"][i] >= 0
-            ):
-                start = i
-            if (
-                start is not None
-                and tag != category_to_index["B-cause"]
-                and tag != category_to_index["I-cause"]
-            ):
-                spans.append([start, i])
-                start = None
+        if index_to_emotion[p["emotion"]] == "neutral":
+            continue
 
         idx_to_utterance = [-1]
-        utt = -1
+        utt = 0
         for i in range(1, len(p["word_ids"])):
             if p["word_ids"][i - 1] < 0 and p["word_ids"][i] >= 0:
                 utt += 1
             idx_to_utterance.append(utt)
 
-        for start, end in spans:
-            if idx_to_utterance[start] != idx_to_utterance[end]:
-                pointer = start
-                current = idx_to_utterance[start]
-                while pointer < end:
-                    if current != idx_to_utterance[pointer] or p["word_ids"][pointer] == -10:
-                        pairs[p["conversation_ID"]].append(
-                            [
-                                f'{p["utterance_ID"]}_{index_to_emotion[p["emotion"]]}',
-                                f"{idx_to_utterance[start]}_{start}_{pointer}",
-                            ]
-                        )
-                        pointer+=1
-                        start = pointer
-                        current = idx_to_utterance[start]
-                    pointer += 1
-                pairs[p["conversation_ID"]].append(
-                    [
-                        f'{p["utterance_ID"]}_{index_to_emotion[p["emotion"]]}',
-                        f"{idx_to_utterance[start]}_{start}_{pointer}",
-                    ]
-                )
-            else:
-                pairs[p["conversation_ID"]].append(
-                    [
-                        f'{p["utterance_ID"]}_{index_to_emotion[p["emotion"]]}',
-                        f"{idx_to_utterance[start]}_{start}_{end}",
-                    ]
-                )
+        utt_tokens_ids = {i : [] for i in range(idx_to_utterance[-1]+1)}
+        utt_cause_ids = {i : [] for i in range(idx_to_utterance[-1]+1)}
+        for i, idx in enumerate(idx_to_utterance):
+            if idx >= 0 and p["word_ids"][i] >= 0:
+                utt_tokens_ids[idx].append(i)
+        for i, ids in utt_tokens_ids.items():
+            for token_idx in ids:
+                if p["tagged"][token_idx] == category_to_index["B-cause"] or p["tagged"][token_idx] == category_to_index["I-cause"]:
+                    utt_cause_ids[i].append(token_idx)
+
+        for i, ids in utt_cause_ids.items():
+            if len(ids) == 0:
+                continue
+            token_min = min(ids)
+            token_max = max(ids)
+            pairs[p["conversation_ID"]].append(
+                [
+                    f'{p["utterance_ID"]}_{index_to_emotion[p["emotion"]]}',
+                    f"{i}_{token_min}_{token_max+1}",
+                ]
+            )
 
     conversation_ids = sorted(pairs.keys())
 
     with open(data_path, "r") as file:
         data = json.load(file)
 
+        data_by_id = {d["conversation_ID"]: d for d in data}
+
         result = []
         for conv_id in conversation_ids:
             con_pairs = pairs[conv_id]
-            data_con = data[conv_id - 1]
+            data_con = data_by_id[conv_id]
             result.append(
                 {
                     "conversation_ID": conv_id,
@@ -107,8 +87,21 @@ if __name__ == "__main__":
             "utterance_ID": 2,
             "word_ids": word_ids,
             "emotion": 1,
-            "tagged": [-100, 0, 0, 1, 2, 2, 0, 1, 1, 1, 1, 1, 2, 2, 0, 1, 1, 2, 2, -100]
-            ,
+            "tagged": [-100, 0, 0, 1, 2, 2, 0, 1, 1, 1, 1, 1, 2, 2, 0, 1, 1, 2, 2, -100],
+        },
+        {
+            "conversation_ID": 1,
+            "utterance_ID": 1,
+            "word_ids": word_ids,
+            "emotion": 0,
+            "tagged": [-100, 0, 0, 1, 2, 2, 0, 1, 1, 1, 1, 1, 2, 2, 0, 1, 1, 2, 2, -100],
+        },
+        {
+            "conversation_ID": 1,
+            "utterance_ID": 1,
+            "word_ids": word_ids,
+            "emotion": 3,
+            "tagged": [-100, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1, 0, 1, 2, 2, 2, -100],
         }
     ]
 

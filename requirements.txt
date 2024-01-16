@@ -8,3 +8,5 @@ scikit-learn
 torch
 hydra-core
 omegaconf
+pickle
+tqdm
