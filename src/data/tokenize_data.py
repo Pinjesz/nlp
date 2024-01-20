@@ -63,6 +63,16 @@ def get_tokenized_data(tokenizer_checkpoint: str, data="data/raw/Subtask_1_train
                         word_index += 1
                     word_ids.append(word_index)
 
+            utt_idx = []
+            u = 0
+            for w_id in word_ids:
+                if w_id != -10:
+                    if utt_idx[-1] == -1:
+                        u += 1
+                    utt_idx.append(u)
+                else:
+                    utt_idx.append(-1)
+
             tokenized.append(
                 {
                     "input_ids": torch.tensor([encoded["input_ids"]]),
@@ -71,6 +81,7 @@ def get_tokenized_data(tokenizer_checkpoint: str, data="data/raw/Subtask_1_train
                     "conversation_ID": conversation["conversation_ID"],
                     "utterance_ID": i + 1,
                     "word_ids": torch.tensor([word_ids]),
+                    "utt_idx": torch.tensor([utt_idx]),
                 }
             )
 
@@ -82,6 +93,10 @@ def get_tokenized_data(tokenizer_checkpoint: str, data="data/raw/Subtask_1_train
 
                 emotion_idx = emotion_to_index[utterances[i]["emotion"]]
 
+                cause_ids = np.zeros(100) - 1
+                for j in range(utt_num):
+                    cause_ids[j+1] = 0
+
                 cause_spans = []
                 for pair in conversation["emotion-cause_pairs"]:
                     target_index = int(pair[0][0 : pair[0].find("_")])
@@ -90,6 +105,9 @@ def get_tokenized_data(tokenizer_checkpoint: str, data="data/raw/Subtask_1_train
                         source_index = int(pair[1][0:underscore_index])
                         if target_index < source_index:
                             continue
+
+                        cause_ids[source_index] = 1
+
                         span = pair[1][underscore_index + 1 :]
                         tokenized_span = tokenizer(span, add_special_tokens=False)[
                             "input_ids"
@@ -113,6 +131,7 @@ def get_tokenized_data(tokenizer_checkpoint: str, data="data/raw/Subtask_1_train
                         "tagged": torch.tensor(
                             tagged.reshape([1, tokenizer.model_max_length])
                         ),
+                        "cause_ids": torch.tensor(cause_ids.reshape([1, 100]))
                     }
                 )
     if data_type == "train":
