@@ -94,7 +94,7 @@ def get_tokenized_data(tokenizer_checkpoint: str, data="data/raw/Subtask_1_train
                 emotion_idx = emotion_to_index[utterances[i]["emotion"]]
 
                 cause_ids = np.zeros(100) - 1
-                for j in range(utt_num):
+                for j in range(i + 1):
                     cause_ids[j+1] = 0
 
                 cause_spans = []
